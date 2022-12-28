@@ -1,5 +1,7 @@
 import express from 'express';
 import router from './routes.js';
+// import log from './logger.js';
+
 const app = express();
 const port = 3000;
 

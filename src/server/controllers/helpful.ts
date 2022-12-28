@@ -5,7 +5,8 @@ interface reqDataObj {
 };
 
 const helpful = (req, res) => {
-  let reqData: reqDataObj = {
+
+  const reqData: reqDataObj = {
     review_id: req.params.review_id
   };
 
