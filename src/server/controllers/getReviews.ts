@@ -18,7 +18,27 @@ const getReviews = (req, res) => {
 
   models.getReviews(reqData)
     .then((data) => {
-      res.status(200).send(data);
+      let reviewsData = data.rows;
+      return reviewsData.map((review) => models.getReviewPhotos(review.id)
+        .then((photos) => ({
+            ...review,
+            photos: photos.rows
+          })
+        )
+      )
+    })
+    .then((reviewsDataPromises) => {
+      return Promise.all(reviewsDataPromises)
+    })
+    .then((data) => {
+      let response = {
+        product: reqData.product_id,
+        page: reqData.page,
+        count: reqData.count,
+        results: data
+      };
+
+      res.status(200).send(response);
     })
     .catch((err) => {
       res.status(404).send(err);
