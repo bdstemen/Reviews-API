@@ -2,11 +2,11 @@ import models from '../models/index.js';
 
 const postReview = (req, res) => {
 
-  models.postReview(req.body)
+  models.postReview.review(req.body)
     .then((review_id) => {
       return Promise.all([
-        models.postReviewPhotos(req.body.photos, review_id),
-        models.postReviewCharacteristics(req.body.characteristics, review_id)
+        models.postReview.photos(req.body.photos, review_id),
+        models.postReview.characteristics(req.body.characteristics, review_id)
       ])
     })
     .then(() => {

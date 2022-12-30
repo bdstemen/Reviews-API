@@ -16,10 +16,10 @@ const getReviews = (req, res) => {
     product_id: req.query.product_id
   };
 
-  models.getReviews(reqData)
+  models.getReviews.reviews(reqData)
     .then((data) => {
       let reviewsData = data.rows;
-      return reviewsData.map((review) => models.getReviewPhotos(review.id)
+      return reviewsData.map((review) => models.getReviews.photos(review.id)
         .then((photos) => ({
             ...review,
             photos: photos.rows
