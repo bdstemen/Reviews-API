@@ -11,7 +11,10 @@ const report = (req, res) => {
   };
 
   models.report(reqData)
-    .then(() => {
+    .then((response) => {
+      if (!response.rowCount) {
+        throw 'Product does not exist';
+      }
       res.status(204).send();
     })
     .catch((err) => {

@@ -27,7 +27,9 @@ const getReviews = {
 
     const data = [reqData.product_id, sortMethods[reqData.sort], reqData.count, (reqData.count * (reqData.page - 1))];
 
-    return pool.query(query, data);
+    const queryName = 'select review data from reviews table';
+
+    return pool.query(query, data, queryName);
   },
 
   photos: (review_id) => {
@@ -37,7 +39,9 @@ const getReviews = {
 
     const data = [review_id];
 
-    return pool.query(query, data);
+    const queryName = 'select review photos from photos table';
+
+    return pool.query(query, data, queryName);
   }
 };
 

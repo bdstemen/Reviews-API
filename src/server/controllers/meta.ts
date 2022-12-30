@@ -19,6 +19,10 @@ const meta = (req, res) => {
       let recommendedData = data[1].rows;
       let characteristicsData = data[2].rows;
 
+      if (!ratingsData.length || !recommendedData.length || !characteristicsData.length) {
+        throw 'Product does not exist';
+      }
+
       let ratings = {};
       let recommended = {};
       let characteristics = {};
@@ -45,7 +49,6 @@ const meta = (req, res) => {
         characteristics: characteristics
       };
 
-      console.log(response);
       res.status(200).send(response);
     })
     .catch((err) => {

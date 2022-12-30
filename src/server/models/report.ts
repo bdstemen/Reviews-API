@@ -8,7 +8,9 @@ const report = (reqData) => {
 
   const data: number[] = [reqData.review_id];
 
-  return pool.query(query, data);
+  const queryName = 'mark review reported';
+
+  return pool.query(query, data, queryName);
 };
 
 export default report;

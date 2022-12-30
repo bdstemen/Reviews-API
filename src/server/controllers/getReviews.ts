@@ -19,13 +19,20 @@ const getReviews = (req, res) => {
   models.getReviews.reviews(reqData)
     .then((data) => {
       let reviewsData = data.rows;
-      return reviewsData.map((review) => models.getReviews.photos(review.id)
-        .then((photos) => ({
-            ...review,
-            photos: photos.rows
+
+      if (!reviewsData.length) {
+        throw 'Product does not exist';
+      }
+
+      return reviewsData.map((review) => {
+        return models.getReviews.photos(review.id)
+          .then((photos) => {
+            return {
+              ...review,
+              photos: photos.rows
+            }
           })
-        )
-      )
+      })
     })
     .then((reviewsDataPromises) => {
       return Promise.all(reviewsDataPromises)
@@ -37,7 +44,6 @@ const getReviews = (req, res) => {
         count: reqData.count,
         results: data
       };
-
       res.status(200).send(response);
     })
     .catch((err) => {
