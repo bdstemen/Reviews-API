@@ -23,7 +23,7 @@ const meta = (req, res) => {
         throw 'Product does not exist';
       }
 
-      let ratings = {};
+      let ratings = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0};
       let recommended = {};
       let characteristics = {};
 

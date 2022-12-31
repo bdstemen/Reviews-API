@@ -15,7 +15,7 @@ const postReview = {
         reviewer_email
       )
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-      RETURNING id`;
+      RETURNING review_id`;
 
     const values = [reqBody.product_id, reqBody.rating, new Date().toISOString(), reqBody.summary, reqBody.body, reqBody.recommend, reqBody.name, reqBody.email];
 

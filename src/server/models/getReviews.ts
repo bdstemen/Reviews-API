@@ -10,7 +10,7 @@ const getReviews = {
 
     const query = `
       SELECT
-        id,
+        review_id,
         rating,
         summary,
         recommend,
@@ -21,6 +21,7 @@ const getReviews = {
         helpfulness
       FROM reviews
       WHERE product_id = $1
+      AND reported = false
       ORDER BY $2
       LIMIT $3
       OFFSET $4`;

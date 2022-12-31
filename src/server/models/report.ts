@@ -4,7 +4,7 @@ const report = (reqData) => {
   const query: string = `
     UPDATE reviews
     SET reported = true
-    WHERE id = $1`;
+    WHERE review_id = $1`;
 
   const data: number[] = [reqData.review_id];
 

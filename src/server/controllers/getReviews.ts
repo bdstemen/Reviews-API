@@ -25,9 +25,21 @@ const getReviews = (req, res) => {
       }
 
       return reviewsData.map((review) => {
-        return models.getReviews.photos(review.id)
+        return models.getReviews.photos(review.review_id)
           .then((photos) => {
+            console.log(review);
+            // let formattedDate = new Date(parseInt(review.date)).toISOString();
+            // if (review.response === 'null') review.response = false;
             return {
+              // review_id: review.id,
+              // rating: review.rating,
+              // summary: review.summary,
+              // recommend: review.recommend,
+              // response: review.response,
+              // body: review.body,
+              // date: formattedDate,
+              // reviewer_name: review.reviewer_name,
+              // helpfulness: review.helpfulness,
               ...review,
               photos: photos.rows
             }
