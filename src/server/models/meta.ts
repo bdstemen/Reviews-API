@@ -6,8 +6,7 @@ const meta = {
       SELECT COUNT(*), rating
       FROM reviews
       WHERE product_id = $1
-      GROUP BY rating
-      ORDER BY rating DESC`;
+      GROUP BY rating`;
 
     const data = [reqData.product_id];
 
