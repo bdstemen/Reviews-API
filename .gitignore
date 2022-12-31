@@ -2,3 +2,4 @@ node_modules
 SDC-data/
 build/
 logger.js
+coverage/
