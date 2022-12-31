@@ -3,5 +3,4 @@ SDC-data/
 build/
 logger.js
 coverage/
-.env
 src/etl
