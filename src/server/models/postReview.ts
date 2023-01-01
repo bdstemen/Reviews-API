@@ -23,7 +23,7 @@ const postReview = {
 
     return pool.query(queryString, values, queryName)
       .then((response) => {
-        return response.rows[0].id;
+        return response.rows[0].review_id;
       })
       .catch((err) => {
         return err;

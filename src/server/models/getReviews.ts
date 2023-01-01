@@ -3,9 +3,9 @@ import pool from '../../database/index.js'
 const getReviews = {
   reviews: (reqData) => {
     const sortMethods = {
-      helpful: `helpfulness DESC`,
-      newest: `date DESC`,
-      relevant: `helpfulness DESC date DESC`
+      helpful: 'helpfulness DESC',
+      newest: 'date DESC',
+      relevant: 'helpfulness DESC, date DESC'
     };
 
     const query = `
@@ -22,11 +22,11 @@ const getReviews = {
       FROM reviews
       WHERE product_id = $1
       AND reported = false
-      ORDER BY $2
-      LIMIT $3
-      OFFSET $4`;
+      ORDER BY ${sortMethods[reqData.sort]}
+      LIMIT $2
+      OFFSET $3`;
 
-    const data = [reqData.product_id, sortMethods[reqData.sort], reqData.count, (reqData.count * (reqData.page - 1))];
+    const data = [reqData.product_id, reqData.count, (reqData.count * (reqData.page - 1))];
 
     const queryName = 'select review data from reviews table';
 

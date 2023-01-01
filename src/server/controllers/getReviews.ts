@@ -27,7 +27,6 @@ const getReviews = (req, res) => {
       return reviewsData.map((review) => {
         return models.getReviews.photos(review.review_id)
           .then((photos) => {
-            console.log(review);
             // let formattedDate = new Date(parseInt(review.date)).toISOString();
             // if (review.response === 'null') review.response = false;
             return {

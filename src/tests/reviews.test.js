@@ -54,7 +54,7 @@ describe('routes' , () => {
         recommend: true,
         name: 'test',
         email: 'test@test.com',
-        photos: ['testPhotoURL1, testPhotoURL2'],
+        photos: ['testPhotoURL1', 'testPhotoURL2'],
         characteristics: {'1': 5, '2': 4}
       });
       expect(response.statusCode).toBe(201);
