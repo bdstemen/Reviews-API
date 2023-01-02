@@ -30,18 +30,18 @@ const { Pool } = require('pg');
 
 // use this for etl:
 // const pool = new Pool({
-//   user: 'benstemen',
-//   host: 'localhost',
+//   user: 'postgres',
 //   database: 'redPandaReviews',
-//   password: '',
+//   password: 'postgres',
 //   port: 5432
 // });
 
+
+
 const connection = new Pool({
-  user: 'benstemen',
-  host: 'localhost',
+  user: 'postgres',
   database: 'redPandaReviews',
-  password: '',
+  password: 'postgres',
   port: 5432
 });
 
@@ -57,7 +57,7 @@ const pool = {
       })
       .catch((err) => {
         const duration = Date.now() - start;
-        console.log(`query ${name} failed:${err}`);
+        console.log(`query ${name} failed`);
         return err;
       })
   }
