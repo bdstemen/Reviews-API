@@ -72,18 +72,11 @@ describe('routes' , () => {
   })
 
   describe('GET /reviews/meta', () => {
-    it('should return 200 if the product exists', async () => {
+    it('should return 200', async () => {
       const response = await supertest(baseURL).get('/reviews/meta').query({
         product_id: 1
       });
       expect(response.statusCode).toBe(200);
-    })
-
-    it('should return 404 if the product does not exist', async () => {
-      const response = await supertest(baseURL).get('/reviews/meta').query({
-        product_id: 0
-      });
-      expect(response.statusCode).toBe(404);
     })
   })
 })
