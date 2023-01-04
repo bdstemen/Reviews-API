@@ -12,6 +12,8 @@ const { Pool } = require('pg');
 
 const connection = new Pool({
   user: 'postgres',
+  // host: 'db',
+  host: 'localhost',
   database: 'redPandaReviews',
   password: 'postgres',
   port: 5432
