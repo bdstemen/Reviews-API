@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   db:
-    image: postgres
+    image: postgres:14.6
     restart: always
     environment:
       - POSTGRES_PASSWORD=postgres
@@ -13,8 +13,10 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   server:
-    image: bdstemen/reviewsapi
+    build: .
     depends_on:
       - db
+    environment:
+      -
     ports:
       - "3000:3000"
