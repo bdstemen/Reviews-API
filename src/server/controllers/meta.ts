@@ -19,12 +19,12 @@ const meta = (req, res) => {
       let recommendedData = data[1].rows;
       let characteristicsData = data[2].rows;
 
-      if (!ratingsData.length || !recommendedData.length || !characteristicsData.length) {
-        throw 'Product does not exist';
-      }
+      // if (!ratingsData.length || !recommendedData.length || !characteristicsData.length) {
+      //   throw 'Product does not exist';
+      // }
 
       let ratings = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0};
-      let recommended = {};
+      let recommended = {"true": 0, "false": 0};
       let characteristics = {};
 
       ratingsData.forEach(rating => {

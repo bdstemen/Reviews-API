@@ -20,25 +20,10 @@ const getReviews = (req, res) => {
     .then((data) => {
       let reviewsData = data.rows;
 
-      if (!reviewsData.length) {
-        throw 'Product does not exist';
-      }
-
       return reviewsData.map((review) => {
         return models.getReviews.photos(review.review_id)
           .then((photos) => {
-            // let formattedDate = new Date(parseInt(review.date)).toISOString();
-            // if (review.response === 'null') review.response = false;
             return {
-              // review_id: review.id,
-              // rating: review.rating,
-              // summary: review.summary,
-              // recommend: review.recommend,
-              // response: review.response,
-              // body: review.body,
-              // date: formattedDate,
-              // reviewer_name: review.reviewer_name,
-              // helpfulness: review.helpfulness,
               ...review,
               photos: photos.rows
             }
