@@ -8,9 +8,9 @@ const helpful = (reqData) => {
 
   const data: number[] = [reqData.review_id];
 
-  const queryName = 'mark review helpful';
+  // const queryName = 'mark review helpful';
 
-  return pool.query(query, data, queryName);
+  return pool.query(query, data);
 };
 
 export default helpful;

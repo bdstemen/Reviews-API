@@ -19,9 +19,9 @@ const postReview = {
 
     const values = [reqBody.product_id, reqBody.rating, new Date().toISOString(), reqBody.summary, reqBody.body, reqBody.recommend, reqBody.name, reqBody.email];
 
-    const queryName = 'add review data to reviews table';
+    // const queryName = 'add review data to reviews table';
 
-    return pool.query(queryString, values, queryName)
+    return pool.query(queryString, values)
       .then((response) => {
         return response.rows[0].review_id;
       })
@@ -38,9 +38,9 @@ const postReview = {
 
     const queryString = format('INSERT INTO reviews_photos (review_id, url) VALUES %L', photoRows);
 
-    const queryName = 'add photos to reviews_photos table';
+    // const queryName = 'add photos to reviews_photos table';
 
-    return pool.query(queryString, undefined, queryName);
+    return pool.query(queryString);
   },
 
   characteristics: (characteristics, review_id) => {
@@ -51,9 +51,9 @@ const postReview = {
 
     const queryString = format('INSERT INTO characteristics_reviews (characteristic_id, review_id, value) VALUES %L', characteristicRows);
 
-    const queryName = 'add characteristics to characteristics_reviews table';
+    // const queryName = 'add characteristics to characteristics_reviews table';
 
-    return pool.query(queryString, undefined, queryName);
+    return pool.query(queryString);
   }
 };
 export default postReview;

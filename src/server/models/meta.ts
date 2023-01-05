@@ -10,9 +10,9 @@ const meta = {
 
     const data = [reqData.product_id];
 
-    const queryName = 'get ratings data from reviews table';
+    // const queryName = 'get ratings data from reviews table';
 
-    return pool.query(query, data, queryName);
+    return pool.query(query, data);
   },
 
   recommended: (reqData) => {
@@ -26,9 +26,9 @@ const meta = {
 
     const data = [reqData.product_id];
 
-    const queryName = 'get recommended data from reviews table';
+    // const queryName = 'get recommended data from reviews table';
 
-    return pool.query(query, data, queryName);
+    return pool.query(query, data);
   },
 
   characteristics: (reqData) => {
@@ -49,9 +49,9 @@ const meta = {
 
     const data = [reqData.product_id];
 
-    const queryName = 'get characteristics data from characteristics_reviews table';
+    // const queryName = 'get characteristics data from characteristics_reviews table';
 
-    return pool.query(query, data, queryName);
+    return pool.query(query, data);
   }
 };
 
