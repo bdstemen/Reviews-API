@@ -39,6 +39,7 @@ CREATE TABLE reviews_photos (
 );
 
 CREATE INDEX PID_index ON reviews (product_id);
+CREATE INDEX PID_reported_index ON reviews (product_id, reported);
 CREATE INDEX RID_index ON reviews_photos (review_id);
 CREATE INDEX characteristics_PID_index ON characteristics (product_id);
 CREATE INDEX CID_index on characteristics_reviews (characteristic_id);`
