@@ -2,7 +2,7 @@ FROM node:16
 
 WORKDIR /Reviews-API
 
-COPY package.json ./
+COPY ["package.json", "package-lock.json", "tsconfig.json", ".env", "./"]
 
 RUN npm install
 
